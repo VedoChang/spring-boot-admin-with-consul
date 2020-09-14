@@ -1,0 +1,33 @@
+server:
+  port: 8597
+    
+spring:
+  application:
+    name: spring-boot-admin-with-consul
+  profiles:
+    active: dev
+  boot:
+    admin:
+     discovery:
+       ignored-services: consul
+     ui:
+       title: Spring Boot Admin
+       brand: <img src="assets/img/icon-spring-boot-admin.svg"><span>Spring Boot Admin</span>
+      
+management:
+  context-path: /actuator
+  health:
+    redis:
+      enabled: false
+    consul:
+      enabled: true
+    binders:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS  
+  
